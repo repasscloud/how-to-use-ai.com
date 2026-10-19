@@ -1,5 +1,9 @@
 # Website changelog
 
+## 11 October 2026 — Amazon author page link
+
+- Added a link to the Amazon author page beside the ORCID link on `/author/`, and added it to the Person `sameAs` structured data.
+
 ## 9 October 2026 — website-only repository
 
 - Split the book series into its own repository (`how-to-use-ai.com-books`). This repository now contains only the website.

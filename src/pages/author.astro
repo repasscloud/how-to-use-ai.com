@@ -10,6 +10,7 @@ export const prerender = true;
 const authorUrl = 'https://how-to-use-ai.com/author/';
 const personId = `${authorUrl}#person`;
 const orcidUrl = 'https://orcid.org/0009-0003-5304-1340';
+const amazonAuthorUrl = 'https://www.amazon.com/author/danijel-james-wynyard-mcclay';
 const bookUrl = 'https://how-to-use-ai.com/books/ai-for-normal-people/';
 const bookId = `${bookUrl}#book`;
 const editions = Object.entries(publishing.books[0].editions).filter(([, edition]) => edition.enabled && edition.isbn);
@@ -21,7 +22,7 @@ const structuredData = {
     { '@type': 'ProfilePage', '@id': authorUrl, url: authorUrl, name: `About ${site.author}`, mainEntity: { '@id': personId } },
     {
       '@type': 'Person', '@id': personId, name: site.author, alternateName: 'DJ',
-      url: authorUrl, sameAs: [orcidUrl], image: new URL(photo.src, Astro.site).href,
+      url: authorUrl, sameAs: [orcidUrl, amazonAuthorUrl], image: new URL(photo.src, Astro.site).href,
       description: biography, jobTitle: 'Software engineer, writer and podcaster',
       knowsAbout: ['Software engineering', 'Artificial intelligence', 'Cloud infrastructure', 'Automation', 'Systems integration'],
       mainEntityOfPage: { '@id': authorUrl },
@@ -51,7 +52,7 @@ const structuredData = {
         <h1>{site.author}</h1>
         <p class="section-intro">Software engineer. Writer. Curious about what actually works.</p>
         <p>{biography}</p>
-        <p><a href={orcidUrl} rel="me">ORCID: 0009-0003-5304-1340</a></p>
+        <p><a href={orcidUrl} rel="me">ORCID: 0009-0003-5304-1340</a> · <a href={amazonAuthorUrl} rel="me noopener noreferrer" target="_blank">Amazon author page</a></p>
         <p>His approach combines practical experience, evidence and healthy scepticism. He writes for readers who want enough understanding to make their own decisions, without needing to become AI specialists.</p>
         <a href="#media">Media and interview enquiries</a>
       </div>
